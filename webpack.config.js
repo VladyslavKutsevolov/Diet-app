@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProd = process.env.NODE_ENV === 'producton';
 const isDev = !isProd;
@@ -42,7 +43,8 @@ module.exports = {
   devtool: isDev ? 'source-map' : false,
   devServer: {
     port: 3000,
-    hot: isDev
+    hot: isDev,
+    contentBase: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -57,10 +59,17 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
+    new MiniCssExtractPlugin({
+      filename: filename('css')
+    }),
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public'),
+          from: path.resolve(__dirname, 'public/favicon.ico'),
+          to: path.resolve(__dirname, 'dist')
+        },
+        {
+          from: path.resolve(__dirname, 'public/manifest.json'),
           to: path.resolve(__dirname, 'dist')
         }
       ]
@@ -68,6 +77,20 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: isDev,
+              reloadAll: true
+            }
+          },
+          'css-loader',
+          'postcss-loader'
+        ]
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
