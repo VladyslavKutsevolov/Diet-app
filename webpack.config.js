@@ -43,8 +43,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : false,
   devServer: {
     port: 3000,
-    hot: isDev,
-    contentBase: path.resolve(__dirname, 'dist')
+    hot: isDev
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -65,11 +64,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public/favicon.ico'),
-          to: path.resolve(__dirname, 'dist')
-        },
-        {
-          from: path.resolve(__dirname, 'public/manifest.json'),
+          from: path.resolve(__dirname, 'public', 'favicon.ico'),
           to: path.resolve(__dirname, 'dist')
         }
       ]
