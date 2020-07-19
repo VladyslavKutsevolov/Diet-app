@@ -5,12 +5,12 @@ import React from 'react';
 export default function CalculatorTemplate() {
   return (
     <>
-      <div className="shadow-md rounded max-w-md overflow-hidden px-2 bg-blue-100">
+      <div className="shadow-md h-full text-center rounded overflow-hidden bg-blue-200">
         <div className="text-center m-4 text-lg font-bold">
           <span>Calculator</span>
         </div>
         <form action="/" method="post">
-          <div className="flex flex-wrap mb-2 justify-around">
+          <div className="flex flex-wrap mb-2 max-w-md justify-around">
             <div className="w-1/3">
               <label
                 htmlFor="height"
@@ -18,7 +18,6 @@ export default function CalculatorTemplate() {
               >
                 Height:
               </label>
-
               <input
                 type="text"
                 id="height"
@@ -39,7 +38,7 @@ export default function CalculatorTemplate() {
               />
             </div>
           </div>
-          <div className="flex flex-wrap justify-around mb-2">
+          <div className="flex flex-wrap max-w-md justify-around mb-2">
             <div className="w-1/3">
               <label
                 htmlFor="age"
@@ -81,10 +80,10 @@ export default function CalculatorTemplate() {
             </div>
           </div>
 
-          <div className="px-8">
+          <div className="max-w-lg px-8">
             <label
               htmlFor="activity-select"
-              className="uppercase mx-1 block text-gray-700 text-xs font-bold"
+              className="uppercase block text-gray-700 text-xs font-bold"
             >
               Activity:
             </label>
@@ -92,7 +91,7 @@ export default function CalculatorTemplate() {
               <select
                 name="acivity"
                 id="acivity"
-                className="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 mx-1 rounded shadow focus:outline-none focus:shadow-outline"
+                className="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-2 py-2  rounded shadow focus:outline-none focus:shadow-outline"
               >
                 <option value="1">Basal Metabolic Rate (BMR)</option>
                 <option value="1.2">Sedentary: little or no exercise</option>
