@@ -55,6 +55,7 @@
     "postcss-cli": "^7.1.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
     "tailwindcss-transforms": "^2.2.0",
