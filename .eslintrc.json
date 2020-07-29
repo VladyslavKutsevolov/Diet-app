@@ -98,6 +98,7 @@
     "no-param-reassign": 0,
     "function-paren-newline": 0,
     "no-alert": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "object-curly-newline": 0
   }
 }

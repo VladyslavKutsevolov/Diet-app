@@ -2,9 +2,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
+function CalculatorTemplate({ setToggleFlip, handleChange }) {
   return (
     <>
       <div className="shadow-md h-full text-center rounded overflow-hidden bg-blue-200">
@@ -23,6 +22,7 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
               <input
                 type="text"
                 id="height"
+                name="height"
                 onChange={handleChange}
                 className="shadow appearance-none block border rounded py-1 px-2 text-gray-700 focus:outline-none focus:shadow-outline"
               />
@@ -37,6 +37,7 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
               <input
                 type="text"
                 id="weight"
+                name="weight"
                 onChange={handleChange}
                 className="shadow block appearance-none border rounded py-1 px-2 text-gray-700 focus:outline-none focus:shadow-outline"
               />
@@ -53,6 +54,7 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
               <input
                 type="number"
                 id="age"
+                name="age"
                 onChange={handleChange}
                 className="shadow block appearance-none border rounded py-1 px-2 text-gray-700 focus:outline-none focus:shadow-outline"
               />
@@ -87,7 +89,7 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
             </div>
           </div>
 
-          <div className="max-w-lg px-8">
+          <div className="max-w-lg px-10">
             <label
               htmlFor="activity-select"
               className="uppercase block text-gray-700 text-xs font-bold"
@@ -96,18 +98,15 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
             </label>
             <div>
               <select
-                name="acivity"
-                id="acivity"
+                name="activity"
+                id="activity"
                 onChange={handleChange}
                 className="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-2 py-2  rounded shadow focus:outline-none focus:shadow-outline"
               >
                 <option value="1">Basal Metabolic Rate (BMR)</option>
                 <option value="1.2">Sedentary: little or no exercise</option>
                 <option value="1.375">Light: exercise 1-3 times/week</option>
-                <option value="1.456">Moderate: exercise 4-5 times/week</option>
-                <option value="1.55">
-                  Active: daily exercise or intense exercise 3-4 times/week
-                </option>
+                <option value="1.55">Moderate: exercise 3-5 times/week</option>
                 <option value="1.725">
                   Very Active: intense exercise 6-7 times/week
                 </option>
@@ -139,6 +138,4 @@ export default function CalculatorTemplate({ setToggleFlip, handleChange }) {
   );
 }
 
-// CalculatorTemplate.propTypes = {
-//   setToggleFlip: PropTypes.bool
-// };
+export default CalculatorTemplate;
